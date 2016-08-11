@@ -59,7 +59,7 @@ class Application extends CommandBase
     public $topics = array();
 
     /**
-     * @var CLIFramework\Formatter
+     * @var \CLIFramework\Formatter
      */
     public $formatter;
 
@@ -68,7 +68,7 @@ class Application extends CommandBase
      *
      * (This should be deprecated since we use service container from now on).
      *
-     * @var CLIFramework\Logger
+     * @var \CLIFramework\Logger
      */
     public $logger;
 
@@ -79,13 +79,13 @@ class Application extends CommandBase
     
 
     /**
-     * @var CLIFramework\ServiceContainer
+     * @var \CLIFramework\ServiceContainer
      */
     protected $serviceContainer;
 
 
     /**
-     * @var Unviersal\Event\PhpEvent
+     * @var \Universal\Event\PhpEvent
      */
     protected $eventService;
 
@@ -129,7 +129,7 @@ class Application extends CommandBase
 
 
     /**
-     * @return Pimple\Container
+     * @return \Pimple\Container
      */
     public function getService()
     {
