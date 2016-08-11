@@ -108,12 +108,18 @@ class ArgInfo
     public function validate($value) {
         if ($this->isa) {
             switch($this->isa) {
-            case "number":
-                return is_numeric($value);
-            case "boolean":
-                return is_bool($value);
-            case "string":
-                return is_string($value);
+                case "number":
+                    return is_numeric($value);
+                case "boolean":
+                    return is_bool($value);
+                case "string":
+                    return is_string($value);
+                case "array":
+                    return is_array($value);
+                case "file":
+                    return file_exists($value);
+                case "dir":
+                    return file_exists($value) && is_dir($value);
             }
         }
         $validValues = $this->getValidValues();
@@ -123,7 +129,7 @@ class ArgInfo
             return in_array($value, $validValues);
         }
         if ($this->validator) {
-            return call_user_func($this->validator);
+            return call_user_func_array($this->validator, array($value));
         }
         return true;
     }
