@@ -4,3 +4,4 @@ src/PHPBrew/
 build/
 .onion
 .hhconfig
+.idea/
